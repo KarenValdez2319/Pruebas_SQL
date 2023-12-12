@@ -1,5 +1,5 @@
 CREATE DATABASE pruebas_sql;
-
+DROP DATABASE pruebas_sql;
 USE pruebas_sql;
 
 CREATE TABLE equipos(
@@ -27,3 +27,12 @@ INSERT INTO equipos(nombre_equipo, marca_equipo, modelo_equipo, serie_equipo)
 INSERT INTO asignacion_equipo(id_equipo, estatus, fecha_asignacion)
   VALUES (1, 1, '2023-03-10'),
           (2, 1, '2023-12-11');
+
+SELECT * FROM asignacion_equipo ae
+	INNER JOIN equipos eq ON eq.id = ae.id_equipo;
+
+SELECT * FROM asignacion_equipo ae
+	LEFT JOIN equipos eq ON eq.id = ae.id_equipo;
+
+SELECT * FROM asignacion_equipo ae
+	RIGHT JOIN equipos eq ON eq.id = ae.id_equipo;
